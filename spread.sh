@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+# set -x
 excluded=('.gitignore' '.gitmodules' '.git')
 
 ls -A | grep '^\.' | while read dotfile; do
