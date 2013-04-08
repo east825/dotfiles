@@ -1,0 +1,13 @@
+[user]
+	name = Mikhail Golubev
+	email = qsolo825@gmail.com
+[credential]
+	helper = cache
+[help]
+	autocorrect = 1
+[color]
+	ui = true
+[alias]
+	st = status
+[core]
+	excludesfile = ~/.cvsignore
