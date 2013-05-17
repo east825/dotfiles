@@ -74,7 +74,7 @@ if has('gui_running')
         "use ":set guifont=*" to choose another one
         set guifont=Consolas:h11:cRUSSIAN
     elseif has('gui_gtk2')
-        set guifont=Monospace\ 11
+        set guifont=DejaVu\ Sans\ Mono\ 9
     endif
 endif
 
@@ -185,12 +185,11 @@ let mapleader = ','
 map Y y$
 map <C-c> Y
 
+" [c]lose window [b]elow
+noremap ,cb <C-w>j<C-w>c<C-w>p
+
 " plugin stuff
-nmap <F11> :NERDTreeToggle<CR>
-map <S-F11> :NERDTreeClose<CR>
 noremap ,n<Space> :NERDTreeToggle<CR>
-map <F12> :TlistToggle<CR>
-noremap ,t<Space> :TlistToggle<CR>
 
 " [s]urround tail part of assignemnt by [q]uotes
 map <silent> ,sq :exec('s/=\zs"\?\([^"]\+\)"\?\ze$/"\1"') \| nohlsearch<CR>
@@ -292,7 +291,7 @@ command! Delbufs 1,1000bwipeout!
 " PLUGINS
 "=======================================================
 
-" NERDtree:
+" == NERDtree ==
 
 " change cwd according to NERDTree's one
 let NERDTreeChDirMode = 2
@@ -307,6 +306,21 @@ let NERDTreeShowFiles = 1
 " NERDcommenter:
 
 let g:NERDSpaceDelims = 1
+
+" == python-mode ==
+
+" disable rope support for now
+let g:pymode_rope = 0
+
+" turn off autofolding
+let g:pymode_folding = 0
+
+" disable mccabe checks (it seems that my code always too comples for it :))
+let g:pymode_lint_checker = 'pyflakes,pep8'
+" let g:pymode_lint_mccabe_complexity=12
+
+" hide cwindow after check (but show marks near linenumbers)
+let g:pymode_lint_cwindow = 0
 
 "=======================================================
 "-> TIPS
