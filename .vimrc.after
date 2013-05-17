@@ -74,6 +74,7 @@ set wildmenu
 set wildignore=*.o,*.obj,*.pyc,*swp
 
 " ## Nonprintable characters mode ##
+set nolist      " disable hidden charactes display at startup
 set listchars=tab:->,trail:-,eol:$,nbsp:.
 set listchars+=precedes:<,extends:>
 set showbreak=>>
