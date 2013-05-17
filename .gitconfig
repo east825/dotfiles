@@ -9,5 +9,15 @@
 	ui = true
 [alias]
 	st = status
+	mt = mergetool -t meld --no-prompt
+	dt = difftool -t meld --no-prompt
 [core]
 	excludesfile = ~/.cvsignore
+	autocrlf = input
+[merge]
+	tool = meld
+[diff]
+        tool = meld
+[difftool]
+        prompt = false
+
