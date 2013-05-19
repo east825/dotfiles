@@ -16,6 +16,9 @@ set virtualedit=block
 " selection mode settings
 set keymodel=startsel,stopsel
 set selectmode=key
+set nrformats-=octal
+set autoread
+set scrolloff=1
 
 " ## Clipboard ##
 
@@ -75,8 +78,7 @@ set wildignore=*.o,*.obj,*.pyc,*swp
 
 " ## Nonprintable characters mode ##
 set nolist      " disable hidden charactes display at startup
-set listchars=tab:->,trail:-,eol:$,nbsp:.
-set listchars+=precedes:<,extends:>
+set listchars=tab:->,trail:-,eol:$,nbsp:.,precedes:<,extends:>
 set showbreak=>>
 
 " ## Keymap ##
@@ -87,9 +89,16 @@ set imsearch=-1
 " ################# Mappings #################
 
 map Y y$
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 noremap ,n<Space> :NERDTreeToggle<CR>
 noremap ,t<Space> :TlistToggle<CR>
 noremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" resize windows
+nnoremap <C-A-right> :vertical resize +5<cr>
+nnoremap <C-A-left> :vertical resize -5<cr>
+
 
 "Derek Wyatt's shorcuts:
 " edit .vimrc 
