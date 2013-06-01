@@ -1,0 +1,10 @@
+# == Login Shell Settings ==
+
+# ENVIRONMENT VARIABLES
+
+export JAVA_HOME="/usr/local/java"
+export JRE_HOME="${JAVA_HOME}/jre"
+
+# path settings:
+export PATH="${JAVA_HOME}/bin:$PATH"
+
