@@ -4,6 +4,7 @@
 
 export JAVA_HOME="/usr/local/java"
 export JRE_HOME="${JAVA_HOME}/jre"
+export JDK_HOME="${JAVA_HOME}"
 
 # path settings:
 export PATH="${JAVA_HOME}/bin:$PATH"
