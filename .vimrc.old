@@ -1,27 +1,27 @@
 "=======================================================
-"====================> MY OPTIONS <=====================
+" GLOBALS
 "=======================================================
 
-"=======================================================
-"-> GLOBALS:
-"=======================================================
 " special variables for the next part of vimrc:
 
 " location of my plugins directory
 let $MYVIMFILES = split(&runtimepath, ',')[0]
+
 "=======================================================
-"-> IMPORTS:
+" IMPORTS
 "=======================================================
+
 " import lot of basic mappings to make vim
 " behave like normal editor (a bit)
 " source $VIMRUNTIME/mswin.vim
 
 " set up Pathogen power!
-call pathogen#infect()
+execute pathogen#infect()
 
 "=======================================================
-"-> BASIC OPTIONS:
+" BASIC OPTIONS
 "=======================================================
+
 " some stuff
 set nocompatible        "nocompatible with vi
 " set cpoptions+=$      " show $ sign at end of changing text
@@ -53,7 +53,7 @@ elseif has('unix')
     " when you explicitly yank text and then paste it with
     " standart commands and hotkeys
     " set clipboard^=unnamedplus " now "+ is used instead of ""
-    set clipboard^=unnamed
+    set clipboard^=unnamedplus
 endif
 
 set backspace=indent,eol,start 
@@ -74,7 +74,7 @@ if has('gui_running')
         "use ":set guifont=*" to choose another one
         set guifont=Consolas:h11:cRUSSIAN
     elseif has('gui_gtk2')
-        set guifont=Monospace\ 11
+        set guifont=DejaVu\ Sans\ Mono\ 9
     endif
 endif
 
@@ -167,8 +167,9 @@ set fileencodings=ucs-bom,utf-8,cp1251
 set viewdir=$HOME/vimfiles/views 
 
 "=======================================================
-"-> MAPPINGS:
+" MAPPINGS
 "=======================================================
+"
 " use ":map" to list all defined mappings
 " and ":umap (:unmap, :iunmap, :nunmap, :vunmpa etc.)" to delete them
 " ":mapclear" allow you to remove them all
@@ -184,12 +185,11 @@ let mapleader = ','
 map Y y$
 map <C-c> Y
 
+" [c]lose window [b]elow
+noremap ,cb <C-w>j<C-w>c<C-w>p
+
 " plugin stuff
-nmap <F11> :NERDTreeToggle<CR>
-map <S-F11> :NERDTreeClose<CR>
 noremap ,n<Space> :NERDTreeToggle<CR>
-map <F12> :TlistToggle<CR>
-noremap ,t<Space> :TlistToggle<CR>
 
 " [s]urround tail part of assignemnt by [q]uotes
 map <silent> ,sq :exec('s/=\zs"\?\([^"]\+\)"\?\ze$/"\1"') \| nohlsearch<CR>
@@ -257,8 +257,9 @@ cnoremap <ESC><C-f> <S-Right>
 cnoremap <ESC><C-h> <C-W>
 
 "=======================================================
-"-> ABBREVIATIONS:
+" ABBREVIATIONS
 "=======================================================
+"
 " type ":abbreviate" to see all defined abbreviations
 " and ":unabbreviate" to delete specified one
 " "noreabbrev" is useful too (see help for details)
@@ -267,12 +268,13 @@ iabbrev lenght length
 
 
 "=======================================================
-"->AUTOCOMMANDS
+" AUTOCOMMANDS
 "=======================================================
 
 "=======================================================
-"->COMMANDS
+" COMMANDS
 "=======================================================
+"
 command! W   w
 if has('win32')
     command! Saves mksession! $HOME/vimfiles/sessions/session.vim
@@ -284,49 +286,13 @@ endif
 " Delete all opened buffers completely
 command! Delbufs 1,1000bwipeout!
 
-" command! Tetris normal ,te
-"=======================================================
-"->FUNCTIONS:
-"=======================================================
-"
-"=======================================================
-"-> [plugin] AutoCompPop plugin settings:
-"=======================================================
-" disable it for now
-let g:loaded_autoload_acp=1
-let g:loaded_acp=1
 
 "=======================================================
-"-> [PLUGIN] Pydoc plugin settings:
-"=======================================================
-let g:pydoc_cmd = "c:/Python27/Lib/pydoc.py"
-
-"=======================================================
-"-> [PLUGIN] Pydiction settings:
+" PLUGINS
 "=======================================================
 
-" location of 'complete-dict' file
-" let g:pydiction_location='d:/HOME/vimfiles/ftplugin/pydiction/complete-dict'
+" == NERDtree ==
 
-"=======================================================
-"-> [PLUGIN] Taglist settings:
-"=======================================================
-if has('win32')
-    let Tlist_Ctags_Cmd =  $MYVIMFILES . '\utils\ctags58\ctags.exe'
-endif
-let g:ctags_status_line=1       "dispaly fuction name in status bar
-let generate_tags=1             "automatically start script
-let Tlist_Use_Horiz_Window=0    "display taglist results in a vertical window
-" various Taglist display config
-let Tlist_Use_Right_Window = 1
-let Tlist_Compact_FOrmat = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_File_Fold_Auto_Close = 1
-
-"=======================================================
-"-> [PLUGIN] NERDtree settings:
-"=======================================================
 " change cwd according to NERDTree's one
 let NERDTreeChDirMode = 2
 " highlighting on
@@ -337,10 +303,24 @@ let NERDTreeShowBookmarks = 1
 " and files
 let NERDTreeShowFiles = 1
 
-"=======================================================
-"-> [PLUGIN] NERDcommenter settings:
-"=======================================================
+" NERDcommenter:
+
 let g:NERDSpaceDelims = 1
+
+" == python-mode ==
+
+" disable rope support for now
+let g:pymode_rope = 0
+
+" turn off autofolding
+let g:pymode_folding = 0
+
+" disable mccabe checks (it seems that my code always too comples for it :))
+let g:pymode_lint_checker = 'pyflakes,pep8'
+" let g:pymode_lint_mccabe_complexity=12
+
+" hide cwindow after check (but show marks near linenumbers)
+let g:pymode_lint_cwindow = 0
 
 "=======================================================
 "-> TIPS
@@ -359,6 +339,3 @@ let g:NERDSpaceDelims = 1
 " '=' in Visual mode - autoformat for c-code
 " :promptf[ind] if you don't like '/' searching
 " or :promptr[epl] also
-"=======================================================
-"-> DEPRECATED
-"=======================================================

@@ -1,0 +1,17 @@
+# == Interactive Shell Settings ==
+
+# disable awkward history expansion in bash (with '!' sign)
+set +o histexpand 
+
+# ALIASES:
+alias Vim='vim --servername VIM --remote-silent'
+alias Gvim='gvim --remote-silent'
+alias sml="rlwrap sml"
+alias ij="rlwrap ij"
+alias ll="ls -AFl"
+alias l.="ls -d .*"
+alias tree="tree -a"
+
+# custom prompt:
+export PS1="\[\033[0;032m\]\u@\[\033[1;032m\]\w\$\[\033[0m\] "
+
