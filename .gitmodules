@@ -1,3 +1,6 @@
 [submodule ".janus/bufexplorer"]
 	path = .janus/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule ".janus/vim-monokai"]
+	path = .janus/vim-monokai
+	url = https://github.com/sickill/vim-monokai.git
