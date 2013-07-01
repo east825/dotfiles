@@ -19,6 +19,7 @@ set selectmode=key
 set nrformats-=octal
 set autoread
 set scrolloff=1
+set go=em
 
 " ## Clipboard ##
 
