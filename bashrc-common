@@ -11,6 +11,7 @@ alias ij="rlwrap ij"
 alias ll="ls -AFl"
 alias l.="ls -d .*"
 alias tree="tree -a"
+alias grep="grep --color=auto -E"
 
 # custom prompt:
 export PS1="\[\033[0;032m\]\u@\[\033[1;032m\]\w\$\[\033[0m\] "
