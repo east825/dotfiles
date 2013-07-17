@@ -12,6 +12,8 @@
 	mt = mergetool --no-prompt
 	dt = difftool --no-prompt
 	ci = commit
+	co = checkout
+	whereadded = log --diff-filter=A --
 [core]
 	excludesfile = ~/.cvsignore
 	autocrlf = input
@@ -21,4 +23,5 @@
         tool = meld
 [difftool]
         prompt = false
-
+[mergetool "p4merge"]
+	trustExitCode = false
