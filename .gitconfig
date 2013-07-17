@@ -12,6 +12,7 @@
 	mt = mergetool --no-prompt
 	dt = difftool --no-prompt
 	ci = commit
+	forget = rm --cached --
 [core]
 	excludesfile = ~/.cvsignore
 	autocrlf = input
