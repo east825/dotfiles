@@ -13,6 +13,8 @@
 	dt = difftool --no-prompt
 	ci = commit
 	forget = rm --cached --
+	co = checkout
+	whereadded = log --diff-filter=A --
 [core]
 	excludesfile = ~/.cvsignore
 	autocrlf = input
@@ -22,4 +24,5 @@
         tool = meld
 [difftool]
         prompt = false
-
+[mergetool "p4merge"]
+	trustExitCode = false
