@@ -137,8 +137,3 @@ let NERDTreeShowFiles = 1
 let g:NERDSpaceDelims = 1
 
 " ## Syntastic ##
-let g:syntastic_java_checkers = []
-let g:syntastic_mode_map =  { 'mode': 'passive',
-                            \ 'active_filetypes': ['python', 'sh'],
-                            \ 'passive_filetypes': ['java'] }
-
