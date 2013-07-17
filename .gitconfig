@@ -24,5 +24,6 @@
         tool = meld
 [difftool]
         prompt = false
-[mergetool "p4merge"]
+[mergetool]
+	keepBackup = false
 	trustExitCode = false
