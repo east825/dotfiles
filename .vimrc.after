@@ -121,7 +121,7 @@ map <silent> <F3> :if &list <Bar>
 
 " ############# Plugins settings #############
 
-" # NERDTree #
+" ## NERDTree ##
 
 " change cwd according to NERDTree's one
 let NERDTreeChDirMode = 2
@@ -133,5 +133,12 @@ let NERDTreeShowBookmarks = 1
 " and files
 let NERDTreeShowFiles = 1
 
-" # NERDCommenter #
+" ## NERDCommenter ##
 let g:NERDSpaceDelims = 1
+
+" ## Syntastic ##
+let g:syntastic_java_checkers = []
+let g:syntastic_mode_map =  { 'mode': 'passive',
+                            \ 'active_filetypes': ['python', 'sh'],
+                            \ 'passive_filetypes': ['java'] }
+

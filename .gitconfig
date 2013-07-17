@@ -9,13 +9,14 @@
 	ui = true
 [alias]
 	st = status
-	mt = mergetool -t meld --no-prompt
-	dt = difftool -t meld --no-prompt
+	mt = mergetool --no-prompt
+	dt = difftool --no-prompt
+	ci = commit
 [core]
 	excludesfile = ~/.cvsignore
 	autocrlf = input
 [merge]
-	tool = meld
+	tool = p4merge
 [diff]
         tool = meld
 [difftool]

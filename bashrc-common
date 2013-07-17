@@ -11,6 +11,7 @@ alias ij="rlwrap ij"
 alias ll="ls -AFl"
 alias l.="ls -d .*"
 alias tree="tree -a"
+alias grep="grep --color=auto -E"
 
 wrap() { 
     (( ${#PWD} > 60 )) && echo -e '\n>> '
