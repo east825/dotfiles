@@ -15,6 +15,7 @@
 	forget = rm --cached --
 	co = checkout
 	whereadded = log --diff-filter=A --
+	mylog = log --author 'Mikhail Golubev'
 [core]
 	excludesfile = ~/.cvsignore
 	autocrlf = input
