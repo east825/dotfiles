@@ -103,7 +103,7 @@ if has('gui_running')
         " use ":set guifont=*" to choose another one
         set guifont=Consolas:h11:cRUSSIAN
     elseif has('gui_gtk2')
-        set guifont=DejaVu\ Sans\ Mono\ 10
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
     endif
 endif
 
@@ -120,17 +120,6 @@ noremap ,n<Space> :NERDTreeToggle<CR>
 noremap ,t<Space> :TlistToggle<CR>
 noremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-" resize windows
-nnoremap <C-A-right> :vertical resize +5<cr>
-nnoremap <C-A-left> :vertical resize -5<cr>
-
-
-"Derek Wyatt's shorcuts:
-" edit .vimrc 
-noremap <silent> ,ev :e ~/.vimrc<CR>
-" source .vimrc
-noremap <silent> ,sv :so ~/.vimrc<CR>
-
 " name of current buffer
 map <silent> ,gn :let @*=expand("%")<CR>
 " full path to current buffer
@@ -142,6 +131,44 @@ map <silent> <F3> :if &list <Bar>
             \else <Bar>
                 \set list <Bar>
             \endif<CR>
+
+" ## Derek Wyatt's shorcuts ##
+
+" edit .vimrc 
+noremap <silent> ,ev :e ~/.vimrc<CR>
+" source .vimrc
+noremap <silent> ,sv :so ~/.vimrc<CR>
+
+" ## Some useful mappings from Janus ##
+
+" format the entire file
+nnoremap <leader>fef :normal! gg=G``<CR>
+
+" cd to the directory containing the file in the buffer
+nmap <silent> <leader>cd :lcd %:h<CR>
+
+" Create the directory containing the file in the buffer
+nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+
+" Some helpers to edit mode
+" http://vimcasts.org/e/14
+nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
+nmap <leader>v :vsp <C-R>=expand('%:h').'/'<cr>
+" Conflicts with edit .vimrc (,ev mapping)
+" nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
+" nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
+nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
+
+" Map the arrow keys to be based on display lines, not physical lines
+map <Down> gj
+map <Up> gk
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+
+" After whitespace, insert the current directory into a command-line path
+cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
+
 
 " ############# Abbreviations #############
 
@@ -172,3 +199,8 @@ let g:NERDSpaceDelims = 1
 
 let g:syntastic_mode_map =  { 'mode': 'active',
                             \ 'passive_filetypes': ['java'] }
+
+" ## Powerline ##
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
