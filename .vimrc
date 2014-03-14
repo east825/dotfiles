@@ -1,3 +1,7 @@
+" Pathogen initialization
+
+execute pathogen#infect()
+
 " ## Miscellaneous settings ##
 
 set nocompatible
@@ -58,6 +62,7 @@ set stl+=Char:0x%B\                                                     " charac
 set stl+=Lang:\ %{ChangeLang()}\                                        " language layout
 
 " ## Searching ##
+
 set incsearch
 set ignorecase
 set smartcase
@@ -65,6 +70,7 @@ set hlsearch
 nohlsearch
 
 " ## Indentation and tabs ##
+
 set autoindent      " turn on autoindent
 set smartindent     " c-like indents
 set tabstop=8       " size of exisiting tabs
@@ -74,20 +80,38 @@ set softtabstop=4
 set expandtab
 
 " ## Wild menu ##
+
 set wildmenu
 set wildignore=*.o,*.obj,*.pyc,*swp
 
 " ## Nonprintable characters mode ##
+
 set nolist      " disable hidden charactes display at startup
 set listchars=tab:->,trail:-,eol:$,nbsp:.,precedes:<,extends:>
 set showbreak=>>
 
 " ## Keymap ##
+
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=-1
 
+" ## Color and fonts
+
+if has('gui_running')
+    if has('gui_win32')
+        " use ":set guifont=*" to choose another one
+        set guifont=Consolas:h11:cRUSSIAN
+    elseif has('gui_gtk2')
+        set guifont=DejaVu\ Sans\ Mono\ 9
+    endif
+endif
+
+colorscheme Tomorrow-Night
+
 " ################# Mappings #################
+
+let mapleader = ','
 
 map Y y$
 nnoremap & :&&<CR>
@@ -119,6 +143,14 @@ map <silent> <F3> :if &list <Bar>
                 \set list <Bar>
             \endif<CR>
 
+" ############# Abbreviations #############
+
+" type ":abbreviate" to see all defined abbreviations
+" and ":unabbreviate" to delete specified one
+" "noreabbrev" is useful too (see help for details)
+
+iabbrev lenght length
+
 " ############# Plugins settings #############
 
 " ## NERDTree ##
@@ -137,3 +169,6 @@ let NERDTreeShowFiles = 1
 let g:NERDSpaceDelims = 1
 
 " ## Syntastic ##
+
+let g:syntastic_mode_map =  { 'mode': 'active',
+                            \ 'passive_filetypes': ['java'] }
