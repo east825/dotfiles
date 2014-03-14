@@ -103,7 +103,7 @@ if has('gui_running')
         " use ":set guifont=*" to choose another one
         set guifont=Consolas:h11:cRUSSIAN
     elseif has('gui_gtk2')
-        set guifont=DejaVu\ Sans\ Mono\ 9
+        set guifont=DejaVu\ Sans\ Mono\ 10
     endif
 endif
 
@@ -127,9 +127,9 @@ nnoremap <C-A-left> :vertical resize -5<cr>
 
 "Derek Wyatt's shorcuts:
 " edit .vimrc 
-noremap <silent> ,ev :e ~/.vimrc.after<CR>
+noremap <silent> ,ev :e ~/.vimrc<CR>
 " source .vimrc
-noremap <silent> ,sv :so ~/.vimrc.after<CR>
+noremap <silent> ,sv :so ~/.vimrc<CR>
 
 " name of current buffer
 map <silent> ,gn :let @*=expand("%")<CR>
