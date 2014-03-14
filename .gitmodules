@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/vim-tomorrow-theme"]
 	path = .vim/bundle/vim-tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule ".vim/bundle/vim-molokai-theme"]
-	path = .vim/bundle/vim-molokai-theme
-	url = https://github.com/tomasr/molokai.git
 [submodule ".vim/bundle/vim-eunuch"]
 	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
@@ -34,3 +31,6 @@
 [submodule ".vim/bundle/vim-buffergator"]
 	path = .vim/bundle/vim-buffergator
 	url = https://github.com/jeetsukumaran/vim-buffergator.git
+[submodule ".vim/bundle/vim-monokai-theme"]
+	path = .vim/bundle/vim-monokai-theme
+	url = https://github.com/sickill/vim-monokai.git
