@@ -199,8 +199,24 @@ let g:NERDSpaceDelims = 1
 
 let g:syntastic_mode_map =  { 'mode': 'active',
                             \ 'passive_filetypes': ['java'] }
+" ### LaTeX-Box ###
+
+let g:LatexBox_latexmk_options = "-e '$pdflatex=q/pdflatex %O -shell-escape %S/'"
+let g:LatexBox_show_warnings = 0
+" let g:LatexBox_latexmk_async = 1
+" let g:LatexBox_quickfix = 2
+" let g:LatexBox_latexmk_preview_continuously = 1
+
+" Might be useful
+" LaTeX (rubber) macro for compiling
+" nnoremap <leader>c :w<CR>:!rubber --pdf --warn all %<CR>
+
+" View PDF macro; '%:r' is current file's root (base) name.
+" nnoremap <leader>v :!mupdf %:r.pdf &<CR><CR>
 
 " ## Powerline ##
+
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+
