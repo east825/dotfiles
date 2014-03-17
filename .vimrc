@@ -14,7 +14,7 @@ set cursorline  " highlight current line
 set visualbell  " turn off nasty beep
 set hidden      " allow to switch buffers in window without saving
 set noswapfile  " it usually just mess me
-set autochdir   " always switch to the current file directory
+" set autochdir   " always switch to the current file directory
 set backspace=indent,eol,start 
 set virtualedit=block
 " selection mode settings
@@ -24,6 +24,8 @@ set nrformats-=octal
 set autoread
 set scrolloff=1
 set go=em
+
+runtime macros/matchit.vim
 
 " ## Clipboard ##
 
@@ -82,6 +84,7 @@ set expandtab
 " ## Wild menu ##
 
 set wildmenu
+set wildmode=full
 set wildignore=*.o,*.obj,*.pyc,*swp
 
 " ## Nonprintable characters mode ##
@@ -109,35 +112,43 @@ endif
 
 colorscheme Tomorrow-Night
 
+" ################# Auto Commands #################
+
+" Source the vimrc file after saving it (taken from vimcasts and bestofvim)
+if has("autocmd")
+    augroup ReloadVimrc
+        autocmd!
+        autocmd BufWritePost $MYVIMRC source $MYVIMRC
+    augroup END
+endif
+
 " ################# Mappings #################
 
 let mapleader = ','
+noremap \ ,
 
 map Y y$
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 noremap ,n<Space> :NERDTreeToggle<CR>
-noremap ,t<Space> :TlistToggle<CR>
-noremap ,cd :cd %:p:h<CR>:pwd<CR>
 
-" name of current buffer
-map <silent> ,gn :let @*=expand("%")<CR>
-" full path to current buffer
-map <silent> ,gp :let @*=expand("%:p")<CR>
-nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-" toggle hidden characters mode
-map <silent> <F3> :if &list <Bar>
-                \set nolist <Bar>
-            \else <Bar>
-                \set list <Bar>
-            \endif<CR>
+" full path to current buffer (name can be received directly from % register)
+map <silent> ,gp :let @+=expand("%:p")<CR>
+
+map <silent> <F3> :set list!<CR>
+map <silent> <F2> :set paste!<CR>
+map <silent> <F4> :set wrap!<CR>
+
+" IDEA like mappings tab switching
+noremap <A-Left> gT
+noremap <A-Right> gt
 
 " ## Derek Wyatt's shorcuts ##
 
 " edit .vimrc 
-noremap <silent> ,ev :e ~/.vimrc<CR>
+noremap <silent> <leader>ev :e $MYVIMRC<CR>
 " source .vimrc
-noremap <silent> ,sv :so ~/.vimrc<CR>
+noremap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " ## Some useful mappings from Janus ##
 
@@ -145,7 +156,7 @@ noremap <silent> ,sv :so ~/.vimrc<CR>
 nnoremap <leader>fef :normal! gg=G``<CR>
 
 " cd to the directory containing the file in the buffer
-nmap <silent> <leader>cd :lcd %:h<CR>
+nmap <silent> <leader>cd :lcd %:p:h<CR>:pwd<CR>
 
 " Create the directory containing the file in the buffer
 nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
@@ -153,7 +164,7 @@ nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
 " Some helpers to edit mode
 " http://vimcasts.org/e/14
 nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
-nmap <leader>v :vsp <C-R>=expand('%:h').'/'<cr>
+nmap <leader>es :vsp <C-R>=expand('%:h').'/'<cr>
 " Conflicts with edit .vimrc (,ev mapping)
 " nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
 " nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
@@ -162,9 +173,6 @@ nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
 map <Up> gk
-
-" Adjust viewports to the same size
-map <Leader>= <C-w>=
 
 " After whitespace, insert the current directory into a command-line path
 cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
