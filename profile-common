@@ -6,6 +6,9 @@ export JAVA_HOME="/usr/local/java"
 export JRE_HOME="${JAVA_HOME}/jre"
 export JDK_HOME="${JAVA_HOME}"
 
+export GROOVY_HOME="/usr/local/software/groovy"
+export GRADLE_HOME="/usr/local/software/gradle"
+
 # path settings:
-export PATH="${JAVA_HOME}/bin:$PATH"
+export PATH="${JAVA_HOME}/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:$PATH"
 
