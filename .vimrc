@@ -133,15 +133,17 @@ xnoremap & :&&<CR>
 noremap ,n<Space> :NERDTreeToggle<CR>
 
 " full path to current buffer (name can be received directly from % register)
-map <silent> ,gp :let @+=expand("%:p")<CR>
+nnoremap <silent> ,gp :let @+=expand("%:p")<CR>
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-map <silent> <F3> :set list!<CR>
-map <silent> <F2> :set paste!<CR>
-map <silent> <F4> :set wrap!<CR>
+nnoremap <silent> <F3> :set list!<CR>
+" map <silent> <F2> :set paste!<CR>
+set pastetoggle=<F2>
+nnoremap <silent> <F4> :set wrap!<CR>
 
 " IDEA like mappings tab switching
-noremap <A-Left> gT
-noremap <A-Right> gt
+nnoremap <A-Left> gT
+nnoremap <A-Right> gt
 
 " ## Derek Wyatt's shorcuts ##
 
@@ -157,6 +159,7 @@ nnoremap <leader>fef :normal! gg=G``<CR>
 
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:p:h<CR>:pwd<CR>
+nmap <silent> <leader>cp :let @+=expand('%:p')<CR>:echo @+<CR>
 
 " Create the directory containing the file in the buffer
 nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
