@@ -1,3 +1,5 @@
+# vim: noet sw=8
+#
 # Midnight Commander 3.0 extension file
 # Warning: Structure of this file has changed completely with version 3.0
 #
@@ -298,8 +300,8 @@ type/^ELF
 	View=%view{ascii} file %f && nm -C %f
 
 # JAR
-shell/.jar
-	Open=java -jar %f
+# shell/.jar
+	# Open=java -jar %f
 
 ### Documentation ###
 
@@ -419,16 +421,19 @@ include/image
 
 ### Sound files ###
 
+# WAV, SND, VOC, AU, SMP, AIFF files
 regex/\.([wW][aA][vV]|[sS][nN][dD]|[vV][oO][cC]|[aA][uU]|[sS][mM][pP]|[aA][iI][fF][fF]|[sS][nN][dD])$
-       Open=if [ "$DISPLAY" = "" ]; then play %f; else (xmms %f >/dev/null 2>&1 &); fi
+	# Open=if [ "$DISPLAY" = "" ]; then play %f; else (xmms %f >/dev/null 2>&1 &); fi
+	Include=audio
 
 regex/\.([mM][oO][dD]|[sS]3[mM]|[xX][mM]|[iI][tT]|[mM][tT][mM]|669|[sS][tT][mM]|[uU][lL][tT]|[fF][aA][rR])$
        Open=mikmod %f
        #Open=tracker %f
 
 regex/\.([wW][aA][wW]22)$
-       Open=vplay -s 22 %f
+	Open=vplay -s 22 %f
 
+# .MP3 files
 regex/\.([mM][pP]3)$
 	# Open=if [ "$DISPLAY" = "" ]; then mpg123 %f; else (xmms %f >/dev/null 2>&1 &); fi
 	# View=%view{ascii} mpg123 -vtn1 %f 2>&1 | sed -n '/^Title/,/^Comment/p;/^MPEG/,/^Audio/p'
@@ -451,8 +456,6 @@ regex/\.([wW][mM][aA])$
 
 include/audio
 	Open=(audacious %s &)
-	
-
 
 ### Play lists ###
 
@@ -518,7 +521,8 @@ type/^PostScript
 
 # PDF
 type/^PDF
-	Open=(see %f &)
+	# Open=(see %f &)
+	Open=(evince %f > /dev/null 2>&1 &)
 	#Open=(acroread %f &)
 	#Open=(ghostview %f &)
 	View=%view{ascii} pdftotext %f -
@@ -545,9 +549,16 @@ shell/.abw
 	Open=(abiword %f &)
 
 # Microsoft Word Document
-regex/\.([Dd][oO][cCtT]|[Ww][rR][iI])$
-	Open=(abiword %f >/dev/null 2>&1 &)
+# .docx?, .wri
+regex/\.([Dd][oO][cCtT][xX]?|[Ww][rR][iI])$
+	# Open=(abiword %f >/dev/null 2>&1 &)
+	Open=(writer %f >/dev/null 2>&1 &)
 	View=%view{ascii} antiword -t %f || catdoc -w %f || word2x -f text %f - || strings %f
+
+# .ppt
+shell/.ppt
+	Open=(impress %f >/dev/null 2>&1 &)
+
 type/^Microsoft\ Word
 	Open=(abiword %f >/dev/null 2>&1 &)
 	View=%view{ascii} antiword -t %f || catdoc -w %f || word2x -f text %f - || strings %f
@@ -583,7 +594,8 @@ regex/\.([Tt][Ee][Xx])$
 
 # DjVu
 regex/\.(djvu?|DJVU?)$
-	Open=djview %f &
+	Open=evince %f &
+	# Open=djview %f &
 	View=%view{ascii} djvused -e print-pure-txt %f
 
 ### Miscellaneous ###
