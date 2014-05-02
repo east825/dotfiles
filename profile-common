@@ -12,3 +12,4 @@ export GRADLE_HOME="/usr/local/software/gradle"
 # path settings:
 export PATH="${JAVA_HOME}/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:$PATH"
 
+export PYTHONSTARTUP="/home/east825/.pythonrc.py"
