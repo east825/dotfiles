@@ -8,8 +8,9 @@ export JDK_HOME="${JAVA_HOME}"
 
 export GROOVY_HOME="/usr/local/software/groovy"
 export GRADLE_HOME="/usr/local/software/gradle"
+export M2_HOME="/usr/local/software/maven"
 
 # path settings:
-export PATH="${JAVA_HOME}/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:$PATH"
+export PATH="${JAVA_HOME}/bin:${JAVA_HOME}/db/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${M2_HOME}/bin:$PATH"
 
 export PYTHONSTARTUP="/home/east825/.pythonrc.py"
