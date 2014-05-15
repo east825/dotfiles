@@ -18,6 +18,9 @@ wrap() {
 }
 
 # custom prompt:
-export PS1="\[\033[0;032m\]\u@\[\033[1;032m\]\w\$\[\033[0m\] \$(wrap)"
+# export PS1="\[\033[0;032m\]\u@\[\033[1;032m\]\w\$\[\033[0m\] \$(wrap)"
 # export PS1="\[\033[0;032m\]\u@\[\033[1;032m\]\w\$\[\033[0m\]"
+
+# Change the color of $/# character at the end depending on escape code of the last command
+export PS1="\[\e[0;032m\]\u@\[\e[1;032m\]\w\$(if (( \$? != 0 )); then echo \"\[\e[1;31m\]\"; fi)\$ \[\e[0m\]"
 
