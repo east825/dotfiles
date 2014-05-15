@@ -8,4 +8,5 @@ augroup filetypedetect
     au! BufRead,BufNewFile *.md                 setf markdown
     au! BufRead,BufNewFile *.user.defined       setf conf
     au! BufRead,BufNewFile *.log                setf conf
+    au! BufRead,BufNewFile *.tex                setf tex
 augroup END
