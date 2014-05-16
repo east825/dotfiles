@@ -140,12 +140,13 @@ nnoremap <silent> <F3> :set list!<CR>
 " map <silent> <F2> :set paste!<CR>
 set pastetoggle=<F2>
 nnoremap <silent> <F4> :set wrap!<CR>
+nnoremap <silent> <F5> :set spell!<CR>
 
 " IDEA like mappings tab switching
 nnoremap <A-Left> gT
 nnoremap <A-Right> gt
 
-" ## Derek Wyatt's shorcuts ##
+" ## Derek Wyatt's shortcuts ##
 
 " edit .vimrc 
 noremap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -188,6 +189,7 @@ cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\
 " "noreabbrev" is useful too (see help for details)
 
 iabbrev lenght length
+iabbrev defintion definition
 
 " ############# Plugins settings #############
 
@@ -204,13 +206,19 @@ let NERDTreeShowBookmarks = 1
 let NERDTreeShowFiles = 1
 
 " ## NERDCommenter ##
+
 let g:NERDSpaceDelims = 1
 
 " ## Syntastic ##
 
 let g:syntastic_mode_map =  { 'mode': 'active',
                             \ 'passive_filetypes': ['java'] }
-" ### LaTeX-Box ###
+" ## BufferGator ##
+
+let g:buffergator_suppress_keymaps = 1
+nmap ,b<Space> :BuffergatorToggle<CR>
+
+" ## LaTeX-Box ##
 
 let g:LatexBox_latexmk_options = "-e '$pdflatex=q/pdflatex %O -shell-escape %S/'"
 let g:LatexBox_show_warnings = 0
