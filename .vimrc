@@ -204,6 +204,9 @@ let NERDTreeHighlightCursorline = 1
 let NERDTreeShowBookmarks = 1
 " and files
 let NERDTreeShowFiles = 1
+" LaTeX and latexmk output
+let NERDTreeIgnore = ['\.aux$', '\.blg$', '\.dvi$', '\.pdf$', '\.nlo$', '\.fdb_latexmk', '\.log$']
+let NERDTreeIgnore += ['\.py[co]$', '__pycache__']
 
 " ## NERDCommenter ##
 
