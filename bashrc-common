@@ -2,6 +2,8 @@
 
 # disable awkward history expansion in bash (with '!' sign)
 set +o histexpand 
+# don't save lines starting from space and duplicates in history
+export HISTCONTROL=ignoreboth
 
 # ALIASES:
 alias Vim='vim --servername VIM --remote-silent'
