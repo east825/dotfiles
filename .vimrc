@@ -1,3 +1,5 @@
+" vim: ff=unix ts=8 sw=4 sts=4 et
+
 " Pathogen initialization
 
 execute pathogen#infect()
