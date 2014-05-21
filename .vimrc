@@ -1,3 +1,5 @@
+" vim: ff=unix ts=8 sw=4 sts=4 et
+
 " Pathogen initialization
 
 execute pathogen#infect()
@@ -221,7 +223,7 @@ let g:syntastic_mode_map =  { 'mode': 'active',
 " ## BufferGator ##
 
 let g:buffergator_suppress_keymaps = 1
-nmap ,b<Space> :BuffergatorToggle<CR>
+nmap <silent> ,b<Space> :BuffergatorToggle<CR>
 
 " ## LaTeX-Box ##
 
@@ -237,10 +239,4 @@ let g:LatexBox_show_warnings = 0
 
 " View PDF macro; '%:r' is current file's root (base) name.
 " nnoremap <leader>v :!mupdf %:r.pdf &<CR><CR>
-
-" ## Powerline ##
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
 
