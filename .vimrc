@@ -112,6 +112,8 @@ endif
 
 colorscheme Tomorrow-Night
 
+set spellfile+=~/.vim/spell/ru-terms.utf-8.add
+
 " ################# Auto Commands #################
 
 " Source the vimrc file after saving it (taken from vimcasts and bestofvim)
