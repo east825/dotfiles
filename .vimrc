@@ -8,6 +8,8 @@ let $VIMFILES=split(&rtp, ',')[0]
 
 " ## Miscellaneous settings ##
 
+set encoding=utf-8 fileencoding=utf-8
+
 set nocompatible
 syntax on
 set number
