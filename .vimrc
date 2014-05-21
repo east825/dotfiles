@@ -236,9 +236,3 @@ let g:LatexBox_show_warnings = 0
 " View PDF macro; '%:r' is current file's root (base) name.
 " nnoremap <leader>v :!mupdf %:r.pdf &<CR><CR>
 
-" ## Powerline ##
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
