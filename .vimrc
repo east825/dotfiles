@@ -120,7 +120,6 @@ colorscheme Tomorrow-Night
 
 " hacky way to make spellfile location platform independent
 let &spellfile = $VIMFILES . '/spell/en.utf-8.add'
-let &spellfile .= ',' . $VIMFILES . '/spell/ru-terms.utf-8.add'
 
 " ################# Auto Commands #################
 
