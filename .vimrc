@@ -3,6 +3,8 @@
 " Pathogen initialization
 
 execute pathogen#infect()
+" track original user-settings directory
+let $VIMFILES=split(&rtp, ',')[0]
 
 " ## Miscellaneous settings ##
 
@@ -114,7 +116,9 @@ endif
 
 colorscheme Tomorrow-Night
 
-set spellfile+=~/.vim/spell/ru-terms.utf-8.add
+" hacky way to make spellfile location platform independent
+let &spellfile = $VIMFILES . '/spell/en.utf-8.add'
+let &spellfile .= ',' . $VIMFILES . '/spell/ru-terms.utf-8.add'
 
 " ################# Auto Commands #################
 

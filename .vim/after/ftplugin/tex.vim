@@ -1,6 +1,7 @@
-setlocal textwidth=80
-setlocal sw=2
-setlocal iskeyword+=:,-
-setlocal spelllang+=ru
-setlocal complete+=k~/.vim/dictionary/latex
-setlocal dict+=~/.vim/dictionary/latex
+setl tw=80 sw=2
+setl iskeyword+=:,-
+setl spelllang+=ru
+" setl complete+=k~/.vim/dictionary/latex
+let &l:complete .= ',k~' . $VIMFILES . '/dictionary/latex'
+" setl dict+=~/.vim/dictionary/latex
+let &l:dict .= ',' . $VIMFILES . '/dictionary/latex'
