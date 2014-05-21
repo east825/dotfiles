@@ -221,7 +221,7 @@ let g:syntastic_mode_map =  { 'mode': 'active',
 " ## BufferGator ##
 
 let g:buffergator_suppress_keymaps = 1
-nmap ,b<Space> :BuffergatorToggle<CR>
+nmap <silent> ,b<Space> :BuffergatorToggle<CR>
 
 " ## LaTeX-Box ##
 
