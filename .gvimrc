@@ -1,7 +1,10 @@
 " vim: ff=unix ts=8 sw=4 sts=4 et
 
-" run gVim in fullscreen mode on startup
-au GUIEnter * simalt ~x
+if has('win32')
+    " run gVim in fullscreen mode on startup (only win32)
+    au GUIEnter * simalt ~x
+endif
+
 " no dialog prompts
 set go-=c
 
