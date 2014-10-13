@@ -435,24 +435,18 @@ regex/\.([wW][aA][wW]22)$
 
 # .MP3 files
 regex/\.([mM][pP]3)$
-	# Open=if [ "$DISPLAY" = "" ]; then mpg123 %f; else (xmms %f >/dev/null 2>&1 &); fi
-	# View=%view{ascii} mpg123 -vtn1 %f 2>&1 | sed -n '/^Title/,/^Comment/p;/^MPEG/,/^Audio/p'
 	Include=audio
 
-regex/\.([oO][gG][gG|aA|vV|xX])$
-	Open=if [ "$DISPLAY" = "" ]; then ogg123 %f; else (xmms %f >/dev/null 2>&1 &); fi
-	View=%view{ascii} ogginfo %s
+# .FLAC files
+regex/\.([fF][lL][aA][cC])$
+	Include=audio
 
-regex/\.([sS][pP][xX]|[fF][lL][aA][cC])$
-	Open=if [ "$DISPLAY" = "" ]; then play %f; else (xmms %f >/dev/null 2>&1 &); fi
-
-regex/\.([mM][iI][dD][iI]?|[rR][mM][iI][dD]?)$
-	Open=timidity %f
-
+# .OGG files
+regex/\.([oO][gG][gG])$
+	Include=audio
+# .WMA files
 regex/\.([wW][mM][aA])$
 	Include=audio
-	# Open=mplayer -vo null %f
-	# View=%view{ascii} mplayer -quiet -slave -frames 0 -vo null -ao null -identify %f 2>/dev/null | tail +13 || file %f
 
 include/audio
 	Open=(audacious %s &)
