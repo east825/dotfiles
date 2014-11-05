@@ -9,4 +9,5 @@ augroup filetypedetect
     au! BufRead,BufNewFile *.user.defined       setf conf
     au! BufRead,BufNewFile *.log                setf conf
     au! BufRead,BufNewFile *.tex                setf tex
+    au! BufRead,BufNewFile *.gradle             setf groovy
 augroup END
