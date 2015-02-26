@@ -10,11 +10,13 @@ bindkey '^[[Z' reverse-menu-complete
 # Good old familiar Bash shell prompt
 # export PS1="\[\e[0;032m\]\u@\[\e[1;032m\]\w\$(if (( \$? != 0 )); then echo \"\[\e[1;31m\]\"; fi)\$ \[\e[0m\]"
 
-autoload -U colors && colors
-PROMPT="%{%F{green}%}%n@%B%{%F{green}%}%~%{%(?.%F{green}.%F{red})%}$ %{%b%f%}"
+autoload -U colors
+PROMPT='%{%F{green}%}%n@%B%{%F{green}%}%~%{%(?.%F{green}.%F{red})%}$ %{%b%f%}'
 # Alternative syntax
 # PROMPT="%{$fg[green]%}%n@%B%{$fg[green]%}%~%{%(?.$fg[green].$fg[red])%}$ %{$reset_color%}"
-# RPROPMT=""
+# RPROMPT='$(__git_ps1 "git:%s")'
+RPROMPT='$(git_prompt_info)'
+
 
 DIRSTACKSIZE=20
 DIRSTACKFILE=~/.zdirs
