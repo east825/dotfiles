@@ -205,7 +205,7 @@ U       Uudecode marked news articles (needs work)
 	echo "Please test the output file before deleting anything."
 
 =+ f \.tar\.gz$ | f \.tar\.z$ | f \.tgz$ | f \.tpz$ | f \.tar\.lz$ | f \.tar\.lzma$ | f \.tar\.7z$ | f \.tar\.xz$ | f \.tar\.Z$ | f \.tar\.bz2$ | f \.zip & t r
-x       Extract the contents of a compressed tar file
+x       Extract the contents of a compressed file
 	unset PRG
 	case %f in
 	    *.tar.bz2)

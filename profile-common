@@ -1,16 +1,22 @@
 # == Login Shell Settings ==
 
-# ENVIRONMENT VARIABLES
+SDK_HOME="/usr/local/sdk"
+TOOLS_HOME="/usr/local/devtools"
 
-export JAVA_HOME="/usr/local/java"
+# Environment variables:
+
+export JAVA_HOME="${SDK_HOME}/java"
 export JRE_HOME="${JAVA_HOME}/jre"
 export JDK_HOME="${JAVA_HOME}"
 
-export GROOVY_HOME="/usr/local/software/groovy"
-export GRADLE_HOME="/usr/local/software/gradle"
-export M2_HOME="/usr/local/software/maven"
+export GROOVY_HOME="${SDK_HOME}/groovy"
+export SCALA_HOME="${SDK_HOME}/scala"
 
-# path settings:
-export PATH="${JAVA_HOME}/bin:${JAVA_HOME}/db/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${M2_HOME}/bin:$PATH"
+export GRADLE_HOME="${TOOLS_HOME}/gradle"
+export M2_HOME="${TOOLS_HOME}/maven"
 
 export PYTHONSTARTUP="/home/east825/.pythonrc.py"
+
+# Path settings:
+
+export PATH="${JAVA_HOME}/bin:${JAVA_HOME}/db/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${SCALA_HOME}/bin:${M2_HOME}/bin:$PATH"

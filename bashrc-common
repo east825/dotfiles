@@ -8,12 +8,17 @@ export HISTCONTROL=ignoreboth
 # ALIASES:
 alias Vim='vim --servername VIM --remote-silent'
 alias Gvim='gvim --remote-silent'
+
 alias sml="rlwrap sml"
+alias ocaml='rlwrap ocaml'
 alias ij="rlwrap ij"
+
 alias ll="ls -AFl"
 alias l.="ls -d .*"
 alias tree="tree -a"
+
 alias grep="grep --color=auto -E"
+alias system-update='sudo apt-get update && sudo apt-get upgrade'
 
 wrap() { 
     (( ${#PWD} > 60 )) && echo -e '\n>> '
