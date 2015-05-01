@@ -11,6 +11,7 @@ export JDK_HOME="${JAVA_HOME}"
 
 export GROOVY_HOME="${SDK_HOME}/groovy"
 export SCALA_HOME="${SDK_HOME}/scala"
+export NODE_HOME="${SDK_HOME}/node"
 
 export GRADLE_HOME="${TOOLS_HOME}/gradle"
 export M2_HOME="${TOOLS_HOME}/maven"
@@ -19,4 +20,4 @@ export PYTHONSTARTUP="/home/east825/.pythonrc.py"
 
 # Path settings:
 
-export PATH="${JAVA_HOME}/bin:${JAVA_HOME}/db/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${SCALA_HOME}/bin:${M2_HOME}/bin:$PATH"
+export PATH="${JAVA_HOME}/bin:${JAVA_HOME}/db/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${SCALA_HOME}/bin:${M2_HOME}/bin:${NODE_HOME}/bin:$PATH"
