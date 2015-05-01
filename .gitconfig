@@ -28,3 +28,5 @@
 [mergetool]
 	keepBackup = false
 	trustExitCode = false
+[push]
+	default = simple
