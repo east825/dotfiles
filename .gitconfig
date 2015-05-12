@@ -16,6 +16,7 @@
 	co = checkout
 	whereadded = log --diff-filter=A --
 	mylog = log --author 'Mikhail Golubev'
+	showmore = show --format=fuller
 [core]
 	excludesfile = ~/.cvsignore
 	autocrlf = input
@@ -25,7 +26,7 @@
         tool = meld
 [difftool]
         prompt = false
-[mergetool]
+[mergetool "p4merge"]
 	keepBackup = false
 	trustExitCode = false
 [push]
