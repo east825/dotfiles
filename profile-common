@@ -16,7 +16,9 @@ export NODE_HOME="${SDK_HOME}/node"
 export GRADLE_HOME="${TOOLS_HOME}/gradle"
 export M2_HOME="${TOOLS_HOME}/maven"
 
-export PYTHONSTARTUP="/home/east825/.pythonrc.py"
+export PYTHONSTARTUP="${HOME}/.pythonrc.py"
+
+export DEV_IDEA_HOME="${HOME}/develop/repos/IDEA"
 
 # Path settings:
 
