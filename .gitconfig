@@ -17,6 +17,7 @@
 	whereadded = log --diff-filter=A --
 	mylog = log --author 'Mikhail Golubev'
 	showmore = show --format=fuller
+	logmore = log --format=fuller
 [core]
 	excludesfile = ~/.cvsignore
 	autocrlf = input
@@ -31,3 +32,5 @@
 	trustExitCode = false
 [push]
 	default = simple
+[pretty]
+        shorthash = "%h %s%nAuthor: %an%nCommitter: %cn%n"
