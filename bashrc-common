@@ -16,24 +16,27 @@ alias ocaml='rlwrap ocaml'
 alias ij="rlwrap ij"
 
 alias ll="ls -AFl"
-alias l.="ls -d .*"
 alias tree="tree -a"
 
 alias grep="grep --color=auto -E"
-alias apt-update-upgrade='sudo apt-get update && sudo apt-get upgrade'
 
 # see http://unix.stackexchange.com/questions/26676/how-to-check-if-a-shell-is-login-interactive-batch
-alias bash_is_interactive='[[ $- == *i* ]]'
-alias bash_is_login='shopt -q login_shell '
-
-wrap() { 
-    (( ${#PWD} > 60 )) && echo -e '\n>> '
-}
-
-# custom prompt:
-# export PS1="\[\033[0;032m\]\u@\[\033[1;032m\]\w\$\[\033[0m\] \$(wrap)"
-# export PS1="\[\033[0;032m\]\u@\[\033[1;032m\]\w\$\[\033[0m\]"
+alias _bash-is-interactive='[[ $- == *i* ]]'
+alias _bash-is-login='shopt -q login_shell '
 
 # Change the color of $/# character at the end depending on escape code of the last command
 export PS1="\[\e[0;032m\]\u@\[\e[1;032m\]\w\$(if (( \$? != 0 )); then echo \"\[\e[1;31m\]\"; fi)\$ \[\e[0m\]"
 
+if [[ "$(uname)" == "Darwin" ]]; then
+    # source completion files from Brew packages
+    BREW_COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
+    if [[ -d "$BREW_COMPLETION_DIR" ]]; then
+        for file in $(ls "$BREW_COMPLETION_DIR"); do
+            if [[ "$file" =~ completion ]]; then
+                . "${BREW_COMPLETION_DIR}/${file}"
+            fi
+        done
+    fi
+elif [[ -f "/etc/debian_version" ]]; then
+    alias apt-update-upgrade='sudo apt-get update && sudo apt-get upgrade'
+fi
