@@ -5,9 +5,22 @@ TOOLS_HOME="/usr/local/devtools"
 
 # Environment variables:
 
-export JAVA_HOME="${SDK_HOME}/java"
-export JRE_HOME="${JAVA_HOME}/jre"
-export JDK_HOME="${JAVA_HOME}"
+# Under OS X Java is located semi-automatically using 'java_home' utility
+# from /System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands.
+# However if JAVA_HOME environment variable is set and points to another
+# directory, its binaries will be used instead by /usr/bin/java, which may be
+# very confusing.
+if [[ "$(uname)" == "Darwin" ]]; then
+    OSX_JAVA_HOME_TOOL="/System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/java_home"
+    export JAVA_HOME="$( $OSX_JAVA_HOME_TOOL 2>/dev/null )"
+else
+    export JAVA_HOME="${SDK_HOME}/java"
+fi
+if [[ -n "$JAVA_HOME" ]]; then
+    PATH="${JAVA_HOME}/bin:$PATH"
+    export JRE_HOME="${JAVA_HOME}/jre"
+    export JDK_HOME="${JAVA_HOME}"
+fi
 
 export GROOVY_HOME="${SDK_HOME}/groovy"
 export SCALA_HOME="${SDK_HOME}/scala"
@@ -22,4 +35,4 @@ export DEV_IDEA_HOME="${HOME}/develop/repos/IDEA"
 
 # Path settings:
 
-export PATH="${JAVA_HOME}/bin:${JAVA_HOME}/db/bin:${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${SCALA_HOME}/bin:${M2_HOME}/bin:${NODE_HOME}/bin:$PATH"
+export PATH="${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${SCALA_HOME}/bin:${M2_HOME}/bin:${NODE_HOME}/bin:$PATH"
