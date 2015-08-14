@@ -37,10 +37,15 @@ runtime macros/matchit.vim
 
 " see help topics: gui-clipboard, x11-selections and manual 09.3 section
 if has('win_32')
-    set clipboard^=unnamed
+   set clipboard^=unnamed
 elseif has('unix')
-    set go+=a   " enable autoselect in vim
-    set clipboard^=unnamedplus
+    let s:uname = system('uname')
+    if s:uname == "Darwin\n"
+        set clipboard=unnamed
+    else
+        set go+=a   " enable autoselect in vim
+        set clipboard^=unnamedplus
+    endif
 endif
 
 " ## Status line ##
