@@ -1,0 +1,46 @@
+# == Interactive Shell Settings ==
+
+autoload -U compinit promptinit
+
+# promptinit
+# prompt pure
+
+compinit
+
+# disable awkward history expansion in bash (with '!' sign)
+set +o histexpand 
+# don't save lines starting from space and duplicates in history
+export HISTCONTROL=ignoreboth
+# exclude compilation artifacts from filename completion
+export FIGNORE=".pyc:.pyo:.o"
+
+export LANG=en_US
+
+# ALIASES:
+alias Vim='vim --servername VIM --remote-silent'
+alias Gvim='gvim --remote-silent'
+
+alias ll="ls -AFl"
+alias tree="tree -a"
+alias grep="grep --color=auto -E"
+
+# see http://unix.stackexchange.com/questions/26676/how-to-check-if-a-shell-is-login-interactive-batch
+# alias _bash-is-interactive='[[ $- == *i* ]]'
+# alias _bash-is-login='shopt -q login_shell '
+
+# Change the color of $/# character at the end depending on escape code of the last command
+export PS1="%F{green}%n@%B%~%(?..%F{red})%(!.#.$) %f%b"
+
+# if [[ "$(uname)" == "Darwin" ]]; then
+#     # source completion files from Brew packages
+#     BREW_COMPLETION_DIR="$(brew --prefix)/etc/bash_completion.d"
+#     if [[ -d "$BREW_COMPLETION_DIR" ]]; then
+#         for file in $(ls "$BREW_COMPLETION_DIR"); do
+#             if [[ "$file" =~ completion ]]; then
+#                 . "${BREW_COMPLETION_DIR}/${file}"
+#             fi
+#         done
+#     fi
+# elif [[ -f "/etc/debian_version" ]]; then
+#     alias apt-update-upgrade='sudo apt-get update && sudo apt-get upgrade'
+# fi
