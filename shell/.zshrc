@@ -1,37 +1,16 @@
-# Basic completion features
-autoload -U compinit promptinit
-compinit && promptinit
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename "$HOME/.zshrc"
 
-# Selectable ncurses-like menu with completion variants
-zstyle ':completion:*' menu select
-# Go backward in Zsh menus by Shift+Tab
-bindkey '^[[Z' reverse-menu-complete
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
-# Good old familiar Bash shell prompt
-# export PS1="\[\e[0;032m\]\u@\[\e[1;032m\]\w\$(if (( \$? != 0 )); then echo \"\[\e[1;31m\]\"; fi)\$ \[\e[0m\]"
+export PS1="%F{green}%n@%B%~%(?..%F{red})%(!.#.$) %f%b"
 
-autoload -U colors
-PROMPT='%{%F{green}%}%n@%B%{%F{green}%}%~%{%(?.%F{green}.%F{red})%}$ %{%b%f%}'
-# Alternative syntax
-# PROMPT="%{$fg[green]%}%n@%B%{$fg[green]%}%~%{%(?.$fg[green].$fg[red])%}$ %{$reset_color%}"
-# RPROMPT='$(__git_ps1 "git:%s")'
-RPROMPT='$(git_prompt_info)'
-
-
-DIRSTACKSIZE=20
-DIRSTACKFILE=~/.zdirs
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-  [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
-fi
-chpwd() {
-  print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
-setopt autopushd pushdsilent pushdtohome
-
-## Remove duplicate entries
-setopt pushdignoredups
-
-## This reverts the +/- operators.
-setopt pushdminus
-
+. .shell/interactive
