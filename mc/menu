@@ -380,10 +380,28 @@ o       Open next a free console
         open -s -- sh
 
 P       Copy path to current file
-        echo -n "%d/%f" | xsel --clipboard
+        if [ "$(uname -s)" = "Darwin" ]; then
+            CLIPBOARD_PROG="pbcopy"
+        else
+            CLIPBOARD_PROG="xsel --clipboard"
+        fi
+        # sh's echo doesn't support "-n" flag
+        printf "%%s" "%d/%f" | $CLIPBOARD_PROG
 
 R       Copy REAL path to current file
-        readlink -e "%f" | xsel --clipboard
+        if [ "$(uname -s)" = "Darwin" ]; then
+            CLIPBOARD_PROG="pbcopy"
+            PATH_RESOLVE_PROG="readlink"
+        else
+            CLIPBOARD_PROG="xsel --clipboard"
+            PATH_RESOLVE_PROG="readlink -e"
+        fi
+        $PATH_RESOLVE_PROG "%f" | $CLIPBOARD_PROG
 
 D       Copy path to working directory
-        echo -n "%d" | xsel --clipboard
+        if [ "$(uname -s)" = "Darwin" ]; then
+            CLIPBOARD_PROG="pbcopy"
+        else
+            CLIPBOARD_PROG="xsel --clipboard"
+        fi
+        printf "%%s" "%d" | $CLIPBOARD_PROG
