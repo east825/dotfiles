@@ -14,3 +14,7 @@ alias grep="grep --color=auto -E"
 if [[ -f "/etc/debian_version" ]]; then
   alias apt-update-upgrade='sudo apt-get update && sudo apt-get upgrade'
 fi
+
+if [ -e "$HOME/.shell/interactive.local" ]; then
+  . "$HOME/.shell/interactive.local"
+fi
