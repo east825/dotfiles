@@ -37,6 +37,8 @@ export DEV_IDEA_HOME="${HOME}/develop/repos/IDEA"
 
 export PATH="${GROOVY_HOME}/bin:${GRADLE_HOME}/bin:${SCALA_HOME}/bin:${M2_HOME}/bin:${NODE_HOME}/bin:$PATH"
 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
+export LC_TIME=en_DK.UTF-8
+export LC_COLLATE=C
 
