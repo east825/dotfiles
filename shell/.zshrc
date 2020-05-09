@@ -13,4 +13,4 @@ compinit
 
 export PS1="%F{green}%n@%B%~%(?..%F{red})%(!.#.$) %f%b"
 
-. .shell/interactive
+. "$HOME/.shell/interactive"
