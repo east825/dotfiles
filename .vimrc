@@ -39,8 +39,7 @@ runtime macros/matchit.vim
 if has('win_32')
    set clipboard^=unnamed
 elseif has('unix')
-    let s:uname = system('uname')
-    if s:uname == "Darwin\n"
+    if system('uname') == "Darwin\n"
         set clipboard=unnamed
     else
         set go+=a   " enable autoselect in vim
