@@ -34,9 +34,6 @@
 [submodule ".vim/bundle/vim-monokai-theme"]
 	path = .vim/bundle/vim-monokai-theme
 	url = https://github.com/sickill/vim-monokai.git
-[submodule ".vim/bundle/LaTeX-Box"]
-	path = .vim/bundle/LaTeX-Box
-	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
