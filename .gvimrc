@@ -1,5 +1,7 @@
 " vim: ff=unix ts=8 sw=4 sts=4 et
 
+set guifont=JetBrains\ Mono\ 10,Consolas:h11:cRUSSIAN,DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+
 if has('win32')
     " run gVim in fullscreen mode on startup (only win32)
     au GUIEnter * simalt ~x

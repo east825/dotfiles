@@ -111,15 +111,6 @@ set imsearch=-1
 
 " ## Color and fonts
 
-if has('gui_running')
-    if has('gui_win32')
-        " use ":set guifont=*" to choose another one
-        set guifont=Consolas:h11:cRUSSIAN
-    elseif has('gui_gtk2')
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-    endif
-endif
-
 colorscheme Tomorrow-Night
 
 " hacky way to make spellfile location platform independent
