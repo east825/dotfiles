@@ -13,6 +13,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export PS1="%F{green}%n@%B%~%(?..%F{red})%(!.#.$) %f%b"
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+    export PS1="%F{green}%n@%U%m%u:%F{green}%B%~%(?..%F{red})%(!.#.$) %f%b"
+else
+    export PS1="%F{green}%n@%B%~%(?..%F{red})%(!.#.$) %f%b"
+fi
 
 . "$HOME/.shell/interactive"
