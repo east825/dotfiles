@@ -18,3 +18,9 @@ fi
 if [ -e "$HOME/.shell/interactive.local" ]; then
   . "$HOME/.shell/interactive.local"
 fi
+
+if [[ -d "$HOME/.pyenv" ]]; then
+  eval "$(pyenv init -)"
+fi
+  
+  

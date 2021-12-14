@@ -10,6 +10,7 @@ bindkey \^U backward-kill-line
 zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
+fpath+="$HOME/.zfunc"
 compinit
 # End of lines added by compinstall
 
@@ -20,3 +21,6 @@ else
 fi
 
 . "$HOME/.shell/interactive"
+
+
+export PATH="$HOME/.poetry/bin:$PATH"

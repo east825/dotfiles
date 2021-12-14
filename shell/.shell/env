@@ -37,6 +37,11 @@ fi
 if [ -d "$HOME/.pyenv" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   prepend_PATH "$PYENV_ROOT/bin"
+  eval "$(pyenv init --path)"
+fi
+
+if [ -d "$HOME/.poetry" ]; then
+  prepend_PATH "$HOME/.poetry/bin"
 fi
 
 export PATH
