@@ -22,5 +22,10 @@ fi
 if [[ -d "$HOME/.pyenv" ]]; then
   eval "$(pyenv init -)"
 fi
+
+if [[ -f /opt/homebrew/etc/profile.d/autojump.sh ]]; then
+  . /opt/homebrew/etc/profile.d/autojump.sh
+fi
+
   
   
